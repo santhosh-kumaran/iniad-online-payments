@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="OnlinePayment" targetNamespace="http://www.ivlfin.org/OnlinePayment/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ivlfin.org/OnlinePayment/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="OnlinePayment_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="OnlinePaymentSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    
+          <xsd:schema targetNamespace="http://www.ivlfin.org/OnlinePayment/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="OnlinePayment_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="OnlinePaymentRequest">
+    <wsdl:part element="tns:OnlinePayment" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="OnlinePaymentResponse">
+    <wsdl:part element="tns:OnlinePaymentResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="OnlinePayment">
+    <wsdl:operation name="OnlinePayment">
+      <wsdl:input message="tns:OnlinePaymentRequest"/>
+      <wsdl:output message="tns:OnlinePaymentResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OnlinePaymentSOAP" type="tns:OnlinePayment">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="OnlinePayment">
+      <soap:operation soapAction="http://www.ivlfin.org/OnlinePayment/OnlinePayment"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OnlinePayment">
+    <wsdl:port binding="tns:OnlinePaymentSOAP" name="OnlinePaymentSOAP">
+      <soap:address location="http://172.17.124.59:8145/esb/ivl/0/process/ivlfin/a_cardonlinepayment/v1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

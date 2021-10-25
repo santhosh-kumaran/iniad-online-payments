@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ivlfin.org/OnlinePayment/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ivlfin.org/OnlinePayment/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:element ibmSchExtn:docRoot="true" name="OnlinePayment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OnlinePaymentReq" type="tns:OnlinePaymentReqType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="OnlinePaymentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OnlinePaymentResp" type="tns:OnlinePaymentRespType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="OnlinePaymentReqType">
+      	<xsd:sequence>
+      		<xsd:element name="RRN" type="xsd:string" />
+      		<xsd:element name="BANK_CODE" type="xsd:string" />
+      		<xsd:element name="CARDNUMBER" type="xsd:int" />
+      		<xsd:element name="LANACCOUNT" type="xsd:string" />
+      		<xsd:element name="CUSTID" type="xsd:int" />
+      		<xsd:element name="ACTIVITYFLAG" type="xsd:string" />
+      		<xsd:element name="STATUSRRN" type="xsd:string" />
+      		<xsd:element name="AMOUNT" type="xsd:int" />
+      		<xsd:element name="LASTPAYDATE" type="xsd:int" />
+      		<xsd:element name="TRANSNUMBER" type="xsd:string" />
+      		<xsd:element name="REINSTATED" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="OnlinePaymentRespType">
+      	<xsd:sequence>
+      		<xsd:element name="RRN" type="xsd:string"/>
+      		<xsd:element name="CUSTID" type="xsd:int"/>
+      		<xsd:element name="CARDNUMBER" type="xsd:int"/>
+      		<xsd:element name="MSGDESCRIPTION" type="xsd:string"/>
+      		<xsd:element name="RESPONSECODE" type="xsd:string"/>
+      		<xsd:element name="AVAILLIMIT" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
